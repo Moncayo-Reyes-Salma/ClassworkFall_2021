@@ -11,10 +11,7 @@ print(s.text)
 t = requests.get(server_name + "get_blood_type/F4")
 print(t.text)
 
-t = requests.post(server_name + "match_check/F4")
-request_json = {
-   "name": "Salma Moncayo-Reyes",
-   "net_id": "sjm99",
-   "e-mail": "salma.moncayoreyes@duke.edu"
-}
-print(t.text)
+
+request_json = {"Name": "sjm99", "Match": "Yes"}
+q = requests.post("http://vcm-7631.vm.duke.edu:5002/match_check", json=request_json)
+print(q.text)
